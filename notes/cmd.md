@@ -7,10 +7,12 @@ go into venv:
 python3.11 -m venv .venv
 
 activate venv:
+每次运行新terminal都必须执行此操作
 
 source .venv/bin/activate
 
 install:
+确保pip是最新版本
 
 python -m pip install --upgrade pip
 

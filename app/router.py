@@ -8,11 +8,6 @@ router = APIRouter(prefix="/items", tags=["items"])
 
 @router.post("", response_model=ItemOut, status_code=201, summary="创建 item")
 def create_item(payload: ItemCreate) -> ItemOut:
-    """
-    TODO:
-    - 这里先直接调用 service。
-    - 你后面可以在这里做 HTTP 层面的异常转换（例如 404/422）。
-    """
     return item_service.create_item(payload)
 
 
