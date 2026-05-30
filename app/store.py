@@ -14,8 +14,8 @@ class ItemMemoryStore:
     def insert(self, item_id: int, data: dict[str, Any]) -> None:
         self.items[item_id] = data.copy()
 
-    def get_all(self) -> list[dict[str, Any]]:
-        return [item.copy() for item in self.items.values()]
+    def get_all(self) -> list[tuple[int, dict[str, Any]]]:
+        return [(item_id, item.copy()) for item_id, item in self.items.items()]
 
     def get(self, item_id: int) -> dict[str, Any] | None:
         data = self.items.get(item_id)

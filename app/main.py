@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.router import api_router
+from app.router import router as api_router
 
 app = FastAPI(
     title="Py API",
@@ -14,13 +14,10 @@ app.include_router(api_router)
 
 @app.get("/", tags=["system"], summary="根路径")
 def root() -> dict[str, str]:
-    """用于确认服务已启动。"""
     return {"message": "Hello World"}
 
 
 @app.get("/health", tags=["system"], summary="健康检查")
 def health() -> dict[str, str]:
-    """给部署与监控系统使用的健康检查接口。"""
     return {"status": "ok"}
-
 

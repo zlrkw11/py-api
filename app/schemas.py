@@ -13,8 +13,7 @@ class ItemCreate(ItemBase):
 class ItemUpdate(BaseModel):
     # name: str | None = Field(default=None, min_length=1, max_length=100)
     name: str | None = Field(default=None, min_length=1, max_length=10)
-    price: float | None = Field(default=None, gt=0)
+    saving: float | None = Field(default=None, gt=0)
 
 class ItemOut(ItemBase):
     id: int = Field(..., ge=1, description="generated id")
-
