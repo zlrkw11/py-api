@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from ..main import app
 
 class RouteException(Exception):
     def __init__(self, name:str):
@@ -13,4 +12,3 @@ def register_exception_handlers(app: FastAPI) -> None:
             status_code=418,
             content={"message": f"{exc.name} raised an exception"},
         )
-        

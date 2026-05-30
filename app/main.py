@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 from app.routers.router import router as api_router
 from app.handlers.errorHandlers import register_exception_handlers
 

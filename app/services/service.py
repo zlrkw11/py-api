@@ -1,5 +1,5 @@
-from app.schemas import ItemCreate, ItemOut, ItemUpdate
-from .store import ItemMemoryStore
+from app.models.schemas import ItemCreate, ItemOut, ItemUpdate
+from ..db.store import ItemMemoryStore
 from fastapi import HTTPException
 
 
