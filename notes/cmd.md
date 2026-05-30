@@ -25,6 +25,7 @@ source .venv/bin/activate
 ```bash
 python -m pip install --upgrade pip
 pip install "fastapi>=0.111,<1" "uvicorn[standard]>=0.30,<1"
+pip install sqlmodel
 ```
 
 ## 2. 启动服务
