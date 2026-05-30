@@ -29,3 +29,6 @@ swagger url:
 prompt for building scaffolding:
 
 帮我搭一下阶段1 的脚手架，写上必要的中文注释 然后手把手教我一步一步该干嘛，但是代码我自己写。创建一个独立的文件夹可以被app 引用的，符合fastapi和 python的最佳实践
+
+清理gitignore
+git clean -fdX
