@@ -1,7 +1,5 @@
 from app.models.schemas import ItemCreate, ItemOut, ItemUpdate
 from ..db.store import ItemMemoryStore
-from fastapi import HTTPException
-
 
 class ItemService:
     def __init__(self, store: ItemMemoryStore) -> None:
