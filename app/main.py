@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from app.router import router as api_router
+from app.routers.router import router as api_router
+from app.handlers.errorHandlers import register_exception_handlers
 
 app = FastAPI(
     title="Py API",
@@ -9,6 +10,7 @@ app = FastAPI(
 )
 
 app.include_router(api_router)
+register_exception_handlers(app)
 
 
 @app.get("/", tags=["system"], summary="Root")
