@@ -33,7 +33,7 @@ def delete_item(item_id: int) -> None:
     item_service.delete_item(item_id)
 
 # db 操作
-@router.post("/db/{item_id}", status_code=201, summary="创建item至db")
+@router.post("/db/items", status_code=201, summary="创建item至db")
 def db_create_item(item: Item, session: SessionDep) -> None:
     session.add(item)
     session.commit()
