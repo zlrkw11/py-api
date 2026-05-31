@@ -2,6 +2,8 @@ from fastapi import APIRouter
 
 from app.models.schemas import ItemCreate, ItemOut, ItemUpdate
 from app.services.service import item_service
+from app.db.db import Item
+from app.db.db import SessionDep
 
 router = APIRouter(prefix="/items", tags=["items"])
 
@@ -30,3 +32,9 @@ def update_item(item_id: int, payload: ItemUpdate) -> ItemOut:
 def delete_item(item_id: int) -> None:
     item_service.delete_item(item_id)
 
+# db 操作
+@router.post("/db/{item_id}", status_code=201, summary="创建item至db")
+def db_create_item(item: Item, session: SessionDep) -> None:
+    session.add(item)
+    session.commit()
+    session.refresh(item)
