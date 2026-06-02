@@ -4,6 +4,8 @@ from app.models.schemas import ItemCreate, ItemOut, ItemUpdate
 from app.services.service import item_service
 from app.db.db import Item
 from app.db.db import SessionDep
+from app.internal.tools.dataStreamer import items
+from collections.abc import AsyncIterable
 
 router = APIRouter(prefix="/items", tags=["items"])
 
@@ -38,3 +40,9 @@ def db_create_item(item: Item, session: SessionDep) -> None:
     session.add(item)
     session.commit()
     session.refresh(item)
+
+# data streaming
+@router.get("/items/stream")
+async def stream_items() -> AsyncIterable[Item]:
+    for item in items:
+        yield item
